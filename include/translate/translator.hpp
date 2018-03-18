@@ -19,14 +19,12 @@ namespace translate
             {
                 std::transform(std::begin(input), std::end(input),
                                std::begin(input),
-                               [](auto v) {
-                                   return std::toupper(v);
-                               });
+                               [](auto v) { return std::toupper(v); });
                 std::cout << input << '\n';
                 std::getline(std::cin, input);
             }
         }
     };
-}
+} // namespace translate
 
 #endif

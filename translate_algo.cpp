@@ -18,20 +18,16 @@ int main()
         return std::nullopt;
     };
 
-    auto mutate = [](std::optional<std::string> &value) {
+    auto mutate = [](std::optional<std::string> & value) {
         if(value)
         {
             std::transform(std::begin(*value), std::end(*value),
                            std::begin(*value),
-                           [](auto v) {
-                               return std::toupper(v);
-                           });
+                           [](auto v) { return std::toupper(v); });
         }
     };
 
-    auto write = [](std::string const &value) {
-        std::cout << value << '\n';
-    };
+    auto write = [](std::string const & value) { std::cout << value << '\n'; };
 
     translate::translate(read, mutate, write);
     return 0;

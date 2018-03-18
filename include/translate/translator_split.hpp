@@ -23,19 +23,17 @@ namespace translate
             return std::nullopt;
         }
 
-        void mutate(std::optional<std::string> &value)
+        void mutate(std::optional<std::string> & value)
         {
             if(value)
             {
                 std::transform(std::begin(*value), std::end(*value),
                                std::begin(*value),
-                               [](auto v) {
-                                   return std::toupper(v);
-                               });
+                               [](auto v) { return std::toupper(v); });
             }
         }
 
-        void write(std::string const &value)
+        void write(std::string const & value)
         {
             std::cout << value << '\n';
         }
@@ -54,6 +52,6 @@ namespace translate
             }
         }
     };
-}
+} // namespace translate
 
 #endif

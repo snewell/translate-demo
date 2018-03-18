@@ -4,7 +4,6 @@
 #include <translate/translator.hpp>
 #endif
 
-
 int main()
 {
     translate::Translator t;

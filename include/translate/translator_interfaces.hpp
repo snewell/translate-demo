@@ -20,19 +20,19 @@ namespace translate
     class Mutator
     {
     public:
-        virtual void mutate(std::optional<T> &value) = 0;
+        virtual void mutate(std::optional<T> & value) = 0;
     };
 
     template <typename T>
     class Writer
     {
     public:
-        virtual void write(T const &value) = 0;
+        virtual void write(T const & value) = 0;
     };
 
-    class Translator : public Reader<std::string>
-                     , public Mutator<std::string>
-                     , public Writer<std::string>
+    class Translator : public Reader<std::string>,
+                       public Mutator<std::string>,
+                       public Writer<std::string>
     {
     public:
         std::optional<std::string> read() override
@@ -46,29 +46,24 @@ namespace translate
             return std::nullopt;
         }
 
-        void mutate(std::optional<std::string> &value) override
+        void mutate(std::optional<std::string> & value) override
         {
             if(value)
             {
                 std::transform(std::begin(*value), std::end(*value),
                                std::begin(*value),
-                               [](auto v) {
-                                   return std::toupper(v);
-                               });
+                               [](auto v) { return std::toupper(v); });
             }
         }
 
-        void write(std::string const &value) override
+        void write(std::string const & value) override
         {
             std::cout << value << '\n';
         }
     };
 
     template <typename T>
-    void translate(Reader<T> &reader,
-                   Mutator<T> &mutator,
-                   Writer<T> &writer
-                  )
+    void translate(Reader<T> & reader, Mutator<T> & mutator, Writer<T> & writer)
     {
         auto input = reader.read();
         while(input)
@@ -81,6 +76,6 @@ namespace translate
             input = reader.read();
         }
     }
-}
+} // namespace translate
 
 #endif

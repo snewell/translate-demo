@@ -27,15 +27,13 @@ namespace translate
     class Uppercaser
     {
     public:
-        void mutate(std::optional<std::string> &value) const
+        void mutate(std::optional<std::string> & value) const
         {
             if(value)
             {
                 std::transform(std::begin(*value), std::end(*value),
                                std::begin(*value),
-                               [](auto v) {
-                                   return std::toupper(v);
-                               });
+                               [](auto v) { return std::toupper(v); });
             }
         }
     };
@@ -43,11 +41,11 @@ namespace translate
     class StdioWriter
     {
     public:
-        void write(std::string const &value) const
+        void write(std::string const & value) const
         {
             std::cout << value << '\n';
         }
     };
-}
+} // namespace translate
 
 #endif

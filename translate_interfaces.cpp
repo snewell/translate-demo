@@ -1,6 +1,5 @@
 #include <translate/translator_interfaces.hpp>
 
-
 int main()
 {
     translate::Translator t;
