@@ -52,3 +52,10 @@ add_executable(translate_algo
 target_link_libraries(translate_algo
     PRIVATE libtranslate
 )
+
+add_executable(translate_algo_reuse
+    translate_algo_reuse.cpp
+)
+target_link_libraries(translate_algo_reuse
+    PRIVATE libtranslate
+)
