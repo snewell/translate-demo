@@ -23,5 +23,18 @@ add_executable(translate
     translate.cpp
 )
 target_link_libraries(translate
-    libtranslate
+    PRIVATE libtranslate
+)
+target_compile_definitions(translate
+    PRIVATE "-DUSE_SPLIT=0"
+)
+
+add_executable(translate_split
+    translate.cpp
+)
+target_link_libraries(translate_split
+    PRIVATE libtranslate
+)
+target_compile_definitions(translate_split
+    PRIVATE "-DUSE_SPLIT=1"
 )
