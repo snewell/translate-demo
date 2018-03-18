@@ -38,3 +38,10 @@ target_link_libraries(translate_split
 target_compile_definitions(translate_split
     PRIVATE "-DUSE_SPLIT=1"
 )
+
+add_executable(translate_interfaces
+    translate_interfaces.cpp
+)
+target_link_libraries(translate_interfaces
+    PRIVATE libtranslate
+)
