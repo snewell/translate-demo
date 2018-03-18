@@ -29,7 +29,7 @@ int main()
         }
     };
 
-   auto write = [](std::string const &value) {
+    auto write = [](std::string const &value) {
         std::cout << value << '\n';
     };
 

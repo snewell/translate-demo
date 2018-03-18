@@ -80,7 +80,7 @@ namespace translate
             }
             input = reader.read();
         }
-        }
+    }
 }
 
 #endif
