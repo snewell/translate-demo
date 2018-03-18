@@ -29,13 +29,14 @@ namespace translate
     template <typename M>
     auto make_mutator(M && m)
     {
-        return [m_ = std::forward<M>(m)]() { return m_(); };
+        return [m_ = std::forward<M>(m)](auto & value) { return m_(value); };
     }
 
     template <typename W>
     auto make_writer(W && w)
     {
-        return [w_ = std::forward<W>(w)]() { return w_(); };
+        return
+            [w_ = std::forward<W>(w)](auto const & value) { return w_(value); };
     }
 } // namespace translate
 

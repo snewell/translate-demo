@@ -30,5 +30,8 @@ int main()
     auto write = [](std::string const & value) { std::cout << value << '\n'; };
 
     translate::translate(read, mutate, write);
+    translate::translate(translate::make_reader(read),
+                         translate::make_mutator(mutate),
+                         translate::make_writer(write));
     return 0;
 }
