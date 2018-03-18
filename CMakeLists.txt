@@ -45,3 +45,10 @@ add_executable(translate_interfaces
 target_link_libraries(translate_interfaces
     PRIVATE libtranslate
 )
+
+add_executable(translate_algo
+    translate_algo.cpp
+)
+target_link_libraries(translate_algo
+    PRIVATE libtranslate
+)
