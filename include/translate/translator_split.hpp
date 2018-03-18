@@ -1,5 +1,5 @@
-#ifndef TRANSLATE_TRANSLATOR_HPP
-#define TRANSLATE_TRANSLATOR_HPP 1
+#ifndef TRANSLATE_TRANSLATOR_SPLIT_HPP
+#define TRANSLATE_TRANSLATOR_SPLIT_HPP 1
 
 #include <algorithm>
 #include <cctype>
