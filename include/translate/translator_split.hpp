@@ -12,6 +12,21 @@ namespace translate
     class Translator
     {
     public:
+        void translate()
+        {
+            auto input = read();
+            while(input)
+            {
+                mutate(input);
+                if(input)
+                {
+                    write(*input);
+                }
+                input = read();
+            }
+        }
+
+    private:
         std::optional<std::string> read()
         {
             std::string input;
@@ -36,20 +51,6 @@ namespace translate
         void write(std::string const & value)
         {
             std::cout << value << '\n';
-        }
-
-        void translate()
-        {
-            auto input = read();
-            while(input)
-            {
-                mutate(input);
-                if(input)
-                {
-                    write(*input);
-                }
-                input = read();
-            }
         }
     };
 } // namespace translate
