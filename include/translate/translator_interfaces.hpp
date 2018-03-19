@@ -13,21 +13,21 @@ namespace translate
     class Reader
     {
     public:
-        virtual std::optional<T> read() = 0;
+        virtual std::optional<T> read() const = 0;
     };
 
     template <typename T>
     class Mutator
     {
     public:
-        virtual void mutate(std::optional<T> & value) = 0;
+        virtual void mutate(std::optional<T> & value) const = 0;
     };
 
     template <typename T>
     class Writer
     {
     public:
-        virtual void write(T const & value) = 0;
+        virtual void write(T const & value) const = 0;
     };
 
     class Translator : public Reader<std::string>,
@@ -35,7 +35,7 @@ namespace translate
                        public Writer<std::string>
     {
     public:
-        std::optional<std::string> read() override
+        std::optional<std::string> read() const override
         {
             std::string input;
             std::getline(std::cin, input);
@@ -46,7 +46,7 @@ namespace translate
             return std::nullopt;
         }
 
-        void mutate(std::optional<std::string> & value) override
+        void mutate(std::optional<std::string> & value) const override
         {
             if(value)
             {
@@ -56,7 +56,7 @@ namespace translate
             }
         }
 
-        void write(std::string const & value) override
+        void write(std::string const & value) const override
         {
             std::cout << value << '\n';
         }

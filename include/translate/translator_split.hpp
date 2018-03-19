@@ -27,7 +27,7 @@ namespace translate
         }
 
     private:
-        std::optional<std::string> read()
+        std::optional<std::string> read() const
         {
             std::string input;
             std::getline(std::cin, input);
@@ -38,7 +38,7 @@ namespace translate
             return std::nullopt;
         }
 
-        void mutate(std::optional<std::string> & value)
+        void mutate(std::optional<std::string> & value) const
         {
             if(value)
             {
@@ -48,7 +48,7 @@ namespace translate
             }
         }
 
-        void write(std::string const & value)
+        void write(std::string const & value) const
         {
             std::cout << value << '\n';
         }
