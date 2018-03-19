@@ -12,6 +12,19 @@ final algorithm-based solution includes a method to use existing code via
 :code:`template` specialization.
 
 
+Building
+--------
+You'll need a fairly modern version of CMake_ since this project uses the
+:code:`cxx_std_17` compiler feature; if your version doesn't recognize that
+feautre, you can hack the same behavior by adding whatever flag your compiler
+uses to enable C++17 mode.  The only C++17 feature used is
+:code:`std::optional`, so you can get most of the affect using
+:code:`boot::optional` if you don't have a modern enough compiler.
+
+I've tested it with gcc-7.3.0 and clang-6.0.0 (with libc++) on an x86_64
+Gentoo Linux system.
+
+
 Evolution
 ---------
 All work is performed under the assumption that a series of
@@ -45,3 +58,6 @@ of this design that leverages an existing :code:`class` (effectively what was
 written in any of the previous stages) by using a simple wrapper.  The
 implementation of :code:`translate` is in :code:`translate.hpp` along with
 default versions of the wrappers.
+
+
+.. _CMake: https://www.cmake.org
