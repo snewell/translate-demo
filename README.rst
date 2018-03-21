@@ -19,7 +19,7 @@ You'll need a fairly modern version of CMake_ since this project uses the
 feautre, you can hack the same behavior by adding whatever flag your compiler
 uses to enable C++17 mode.  The only C++17 feature used is
 :code:`std::optional`, so you can get most of the affect using
-:code:`boot::optional` if you don't have a modern enough compiler.
+:code:`boost::optional` if you don't have a modern enough compiler.
 
 I've tested it with gcc-7.3.0 and clang-6.0.0 (with libc++) on an x86_64
 Gentoo Linux system.
@@ -28,7 +28,7 @@ Gentoo Linux system.
 Evolution
 ---------
 All work is performed under the assumption that a series of
-:code:`std::string`s need to be converted to uppercase.  Work is broken into
+:code:`std::string`\s need to be converted to uppercase.  Work is broken into
 reading (getting the next :code:`std::string` to operate on), mutating (making
 everything uppercase), and writing (printing the mutated :code:`std::string`).
 
@@ -42,7 +42,7 @@ function.  The main function (:code:`translate`), calls into each of the
 functions.  Work is available in :code:`translator_split.hpp` and
 :code:`translate.cpp`.
 
-Next, the work is broken into a series of :code:`class`es following the single
+Next, the work is broken into a series of :code:`class`\es following the single
 responsibility principle.  :code:`translate` is now a free function and takes
 three arguments: a :code:`Reader`, a :code:`Mutator`, and a :code:`Writer`.
 This also permits dependency injection, making it possible to test
